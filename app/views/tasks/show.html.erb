@@ -1,6 +1,7 @@
 <h1><%= @task.content %>の詳細</h1>
 
 <p>Task: <%= @task.content %></p>
+<p>Status: <%= @task.status %></p>
 
 <%= link_to "編集する", edit_task_path %>
 <%= link_to "削除する", @task, method: :delete, data:{ confirm: "本当に削除してよろしいですか?"} %>
