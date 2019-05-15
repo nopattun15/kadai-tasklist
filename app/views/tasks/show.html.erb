@@ -1,9 +1,19 @@
 <h1><%= @task.content %>の詳細</h1>
 
-<p>Task: <%= @task.content %></p>
-<p>Status: <%= @task.status %></p>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Task</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td><%= @task.id %></td>
+        <td><%= @task.content %></td>
+        <td><%= @task.status %></td>
+    </tr>
+</table>
 
-<%= link_to "編集する", edit_task_path %>
-<%= link_to "削除する", @task, method: :delete, data:{ confirm: "本当に削除してよろしいですか?"} %>
-<%= link_to "一覧に戻る", tasks_path %>
+<%= link_to "編集する", edit_task_path, class:"btn btn-light" %>
+<%= link_to "削除する", @task, method: :delete, data:{ confirm: "本当に削除してよろしいですか?"},class: "btn btn-danger" %>
+
 
