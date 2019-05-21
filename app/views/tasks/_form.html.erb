@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-6">
         <%= form_with(model: task, local: true) do |f| %>
-        
+        <%= render "layouts/error_message" %>
         
             <% if task.errors.any? %>
                 <div id="error_explanation" class="alert alert-warning">
