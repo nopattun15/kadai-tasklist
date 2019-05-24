@@ -1,13 +1,4 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index,:show]
-  
-  def index
-    @users = User.order(id: :desc).page(params[:page]).per(10)
-  end
-
-  def show
-    @user = User.find(params[:id])
-  end
 
   def new
     @user = User.new
@@ -18,11 +9,17 @@ class UsersController < ApplicationController
     
     if @user.save
       flash[:success] = "ユーザーが登録されました"
-      redirect_to @user
+      email = @user.email.downcase
+      password = @user.password
+        if login(email,password)
+          redirect_to tasks_path(current_user)
+        end 
     else
       flash.now[:danger] = "ユーザーが登録されませんでした"
       render :new 
     end 
+    
+
   end
   
   private

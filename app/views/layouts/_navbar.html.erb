@@ -10,16 +10,14 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <% if logged_in? %>
-                    <li class="nav-item"><%= link_to "Users", users_path, class: "nav-link" %></li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li class="dropdown-item"><%= link_to "My pfofile", user_path(current_user) %></li>
-                            <li class="dropdown-item"><%= link_to "Task作成", new_task_path %></li>
-                            <li class="dropdown-diveider"></li>
-                            <li class="dropdown-item"><%= link_to "Logout", logout_path, method: :delete %></li>
-                        </ul>
-                    </li>
+                  <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li class="dropdown-item"><%= link_to 'New Task create', new_task_path(current_user) %></li>
+                      <li class="dropdown-divider"></li>
+                      <li class="dropdown-item"><%= link_to "Logout",logout_path, method: :delete %></li>
+                    </ul>
+                  </li>
                 <% else %>
                     <li class="nav-item"><%= link_to "Sign up", signup_path, class: "nav-link" %></li>
                     <li class="nav-item"><%= link_to "Log in", login_path, class: "nav-link" %></li>
