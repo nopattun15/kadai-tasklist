@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       email = @user.email.downcase
       password = @user.password
         if login(email,password)
-          redirect_to tasks_path(current_user)
+          redirect_to root_url
         end 
     else
       flash.now[:danger] = "ユーザーが登録されませんでした"
