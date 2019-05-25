@@ -4,7 +4,6 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
                     <th>id</th>
                     <th>Task</th>
                     <th>Status</th>
@@ -13,7 +12,6 @@
             <tbody>
                 <% @tasks.each do |task| %>
                     <tr>
-                        <td><%= task.user.name %></td>
                         <td><%= link_to task.id, task %></td>
                         <td><%= task.content %></td>
                         <td><%= task.status %></td>
